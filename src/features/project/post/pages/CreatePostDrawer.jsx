@@ -55,10 +55,9 @@ export default function CreatePostDrawer({ open, onClose, onSubmit }) {
     handleFileSelect,
     handleFileDelete,
     handleFileRetry,
-    handleCancel,
     handlePreviewOpen,
     handlePreviewClose,
-  } = usePostForm({ dispatch, open });
+  } = usePostForm({ dispatch, open, onClose });
 
   const [loading, setLoading] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -137,7 +136,7 @@ export default function CreatePostDrawer({ open, onClose, onSubmit }) {
       <Drawer
         anchor="right"
         open={open}
-        onClose={handleCancel}
+        onClose={onClose}
         PaperProps={{
           sx: { width: { xs: "100%", sm: "50vw" }, bgcolor: "transparent" },
         }}
@@ -166,7 +165,7 @@ export default function CreatePostDrawer({ open, onClose, onSubmit }) {
                 <Typography variant="h3" fontWeight={600}>
                   게시글 작성
                 </Typography>
-                <IconButton onClick={handleCancel}>
+                <IconButton onClick={onClose}>
                   <CloseIcon />
                 </IconButton>
               </Box>
@@ -273,7 +272,7 @@ export default function CreatePostDrawer({ open, onClose, onSubmit }) {
                 />
 
                 <Stack direction="row" justifyContent="flex-end" spacing={2}>
-                  <CustomButton kind="text" onClick={handleCancel}>
+                  <CustomButton kind="ghost" onClick={onClose}>
                     취소
                   </CustomButton>
                   <CustomButton

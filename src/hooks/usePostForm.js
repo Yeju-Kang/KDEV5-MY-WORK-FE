@@ -113,17 +113,6 @@ export default function usePostForm({ dispatch, open }) {
     }
   };
 
-  const handleCancel = async () => {
-    const hasUploadedFiles = files.some(
-      (file) => file.status === "success" && file.postAttachmentId
-    );
-    if (hasUploadedFiles && form.id) {
-      await dispatch(cleanupPostAttachments(form.id)).unwrap();
-    }
-    setForm((prev) => ({ ...prev, projectStepId: "", title: "", content: "" }));
-    setFiles([]);
-  };
-
   const handlePreviewOpen = (file) => {
     setPreviewModal({
       open: true,
@@ -156,7 +145,6 @@ export default function usePostForm({ dispatch, open }) {
     handleFileSelect,
     handleFileDelete,
     handleFileRetry,
-    handleCancel,
     handlePreviewOpen,
     handlePreviewClose,
   };
