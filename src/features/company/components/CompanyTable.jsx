@@ -55,7 +55,7 @@ export default function CompanyTable() {
   ];
 
   const loadCompany = useCallback(() => {
-    const params = { page, companyType: "DEV" };
+    const params = { page };
 
     if (searchText.trim()) {
       params.keyword = searchText.trim();
