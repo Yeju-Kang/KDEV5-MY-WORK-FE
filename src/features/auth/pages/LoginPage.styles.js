@@ -26,3 +26,16 @@ export const LoginButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.grey[700],
   },
 }));
+
+export const TestAccountCard = styled(Paper)(({ theme }) => ({
+  width: "100%",
+  background: "#E6F9E6",
+  color: "#218838",
+  borderRadius: "12px 12px 0 0",
+  padding: "18px 24px",
+  marginBottom: 0,
+  fontSize: 15,
+  fontWeight: 500,
+  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+  borderBottom: "1px solid #b2e6b2",
+}));
